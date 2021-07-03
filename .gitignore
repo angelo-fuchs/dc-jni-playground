@@ -1,3 +1,5 @@
 *.class
 libhello.so
 out/
+target/
+native_project/target
