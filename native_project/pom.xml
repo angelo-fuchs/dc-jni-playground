@@ -11,6 +11,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>native-maven-plugin</artifactId>
 				<extensions>true</extensions>
+				<version>1.0-alpha-9</version>
 				<configuration>
 					<sources>
 						<source>
@@ -22,7 +23,7 @@
 						<source>
 							<directory>${JAVA_HOME}/include</directory>
 							<includes>
-								<include>**/*.h</include>
+								<include>jni.h</include>
 							</includes>
 						</source>
 						<source>
@@ -32,11 +33,12 @@
 							</includes>
 						</source>
 					</sources>
+					<linkerStartOptions>-L libdeltachat.a -l:./libdeltachat.a</linkerStartOptions>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<properties>
-		<JAVA_HOME>/usr/lib/jvm/java-11-openjdk-amd64/</JAVA_HOME>
+		<JAVA_HOME>/usr/lib/jvm/default-java/</JAVA_HOME>
 	</properties>
 </project>
