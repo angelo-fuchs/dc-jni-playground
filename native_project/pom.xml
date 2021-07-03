@@ -19,9 +19,24 @@
 								<include>**/*.c</include>
 							</includes>
 						</source>
+						<source>
+							<directory>${JAVA_HOME}/include</directory>
+							<includes>
+								<include>**/*.h</include>
+							</includes>
+						</source>
+						<source>
+							<directory>${JAVA_HOME}/include/linux</directory>
+							<includes>
+								<include>**/*.h</include>
+							</includes>
+						</source>
 					</sources>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	<properties>
+		<JAVA_HOME>/usr/lib/jvm/java-11-openjdk-amd64/</JAVA_HOME>
+	</properties>
 </project>
