@@ -1,12 +1,12 @@
 #!/bin/sh
 
-export CLASSPATH="src"
+CLASSPATH="src/java"
 
-javac src/*.java
-javac src/chat/delta/java/*.java
+javac -cp "$CLASSPATH" src/java/*.java
+javac -cp "$CLASSPATH" src/java/chat/delta/java/*.java
 
 
-cd src/chat/delta/native
+cd src/cpp/chat/delta/native
 
 gcc \
 dc_wrapper.c \
@@ -14,13 +14,13 @@ dc_wrapper.c \
 -L libdeltachat.a -l:./libdeltachat.a \
 -o libdeltajni.so -shared
 
-cd ../../../..
+cd ../../../../..
 
 # package
-mkdir -p out || true
-rm out/* || true
+mkdir -p target || true
+rm target/* || true
 
-cd src
-jar cf ../out/deltachat.jar chat/delta/java/*.class
-cd ..
-cp src/chat/delta/native/libdeltajni.so out/libdeltajni.so
+cd src/java/
+jar cf ../../target/deltachat.jar chat/delta/java/*.class
+cd ../../
+cp src/cpp/chat/delta/native/libdeltajni.so target/libdeltajni.so
