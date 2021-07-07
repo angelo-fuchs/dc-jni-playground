@@ -23,7 +23,7 @@
 				<extensions>true</extensions>
 				<version>1.0-alpha-9</version>
 				<configuration>
-					<compilerStartOptions>-m64 -I ${JAVA_HOME}include -I ${JAVA_HOME}include/linux</compilerStartOptions>
+					<compilerStartOptions>-I ${JAVA_HOME}include -I ${JAVA_HOME}include/linux</compilerStartOptions>
 					<linkerEndOptions>-shared</linkerEndOptions>
 					<sources>
 						<source>
