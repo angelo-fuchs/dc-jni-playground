@@ -5,6 +5,16 @@
 	<artifactId>libdeltajni</artifactId>
 	<version>1.56</version>
 	<packaging>so</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>chat.delta</groupId>
+			<artifactId>libdeltachat.a</artifactId>
+			<version>1.56</version>
+			<scope>system</scope>
+			<type>a</type>
+			<systemPath>${basedir}/lib/libdeltachat.a</systemPath>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -13,27 +23,29 @@
 				<extensions>true</extensions>
 				<version>1.0-alpha-9</version>
 				<configuration>
+					<compilerStartOptions>-m64 -I ${JAVA_HOME}include -I ${JAVA_HOME}include/linux</compilerStartOptions>
 					<sources>
 						<source>
 							<directory>src/main/c</directory>
 							<includes>
 								<include>**/*.c</include>
 							</includes>
+							<dependencyAnalysisParticipation>false</dependencyAnalysisParticipation>
 						</source>
-						<source>
+						<!--<source>
 							<directory>${JAVA_HOME}/include</directory>
 							<includes>
 								<include>jni.h</include>
 							</includes>
+							<deployable>true</deployable>
 						</source>
 						<source>
 							<directory>${JAVA_HOME}/include/linux</directory>
 							<includes>
 								<include>**/*.h</include>
 							</includes>
-						</source>
+						</source>-->
 					</sources>
-					<linkerStartOptions>-L libdeltachat.a -l:./libdeltachat.a</linkerStartOptions>
 				</configuration>
 			</plugin>
 		</plugins>
