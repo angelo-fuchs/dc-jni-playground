@@ -8,7 +8,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>chat.delta</groupId>
-			<artifactId>libdeltachat.a</artifactId>
+			<artifactId>libdeltachat</artifactId>
 			<version>1.56</version>
 			<scope>system</scope>
 			<type>a</type>
