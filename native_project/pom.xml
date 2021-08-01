@@ -10,9 +10,11 @@
 			<groupId>chat.delta</groupId>
 			<artifactId>libdeltachat</artifactId>
 			<version>1.56</version>
-			<scope>system</scope>
 			<type>a</type>
-			<systemPath>${basedir}/lib/libdeltachat.a</systemPath>
+			<!-- If you are missing this dependency, you need to add it to maven repo. Nativaget to the directory where your libdeltachat.a is locadetd, then execute:
+
+mvn install:install-file -Dfile=libdeltachat.a -DgroupId=chat.delta -DartifactId=libdeltachat -Dversion=1.56 -Dtype=a -Dpackaging=a
+			-->
 		</dependency>
 	</dependencies>
 	<build>
